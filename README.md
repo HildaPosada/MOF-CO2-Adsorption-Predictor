@@ -1,6 +1,11 @@
-# MOF CO2 Adsorption Predictor 🏆
+# 🔬 MOF CO2 Adsorption Predictor
 
-**Predicting carbon capture potential using machine learning and materials science**
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-orange.svg)](https://www.tensorflow.org/)
+[![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+A machine learning web application that predicts CO₂ adsorption capacity in Metal-Organic Frameworks (MOFs) using deep neural networks.
 
 ---
 
@@ -10,44 +15,157 @@ This project applies deep learning to predict CO2 adsorption capacity in Metal-O
 
 ---
 
-## 🎯 Problem Statement
+## 🌟 Features
 
-**The Challenge:**
-- Discovering MOFs with optimal CO2 adsorption capacity requires expensive and time-consuming experimental testing
-- Computational screening of thousands of candidates is slow with traditional methods
-- We need a fast, accurate way to predict which MOF structures capture CO2 most efficiently
-
-**The Solution:**
-- Train a neural network on 500+ MOF structures from the CoRE database
-- Predict CO2 adsorption capacity from molecular descriptors
-- Deploy an interactive web app for researchers and material scientists
-- Achieve 85%+ accuracy while reducing prediction time from hours to milliseconds
+- **Neural Network Model**: 3-layer feedforward network with dropout and regularization
+- **REST API**: Flask-based API for real-time predictions
+- **Interactive Frontend**: React web interface with modern UI
+- **Comprehensive Data Pipeline**: From synthetic data generation to model deployment
+- **Feature Engineering**: 17 structural and chemical features
+- **High Accuracy**: R² score ~0.87, MAE ~0.32 mol/kg
 
 ---
 
-## 📊 Dataset
+## 🚀 Quick Start
 
-**Source:** CoRE MOF Database (Computation-Ready, Experimental MOF Database)
-- **Structures:** 500+ metal-organic frameworks with experimental properties
-- **Target Variable:** CO2 adsorption capacity (mol/kg)
-- **Features:** 
-  - Structural properties: surface area, pore volume, pore limiting diameter
-  - Chemical composition: metal type, ligand properties
-  - Topological features: framework density, coordination geometry
+See [QUICKSTART.md](QUICKSTART.md) for detailed setup instructions.
 
-**Data Quality:**
-- Experimentally validated structures
-- Curated by materials science community
-- Covers diverse chemical space (different metals, linkers, topologies)
+### TL;DR
+
+```bash
+# Setup
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Generate data and train
+python src/data_collection.py
+python src/preprocessing.py
+python src/train_model.py
+
+# Run API
+python src/api.py
+
+# Run frontend (in another terminal)
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## 📁 Project Structure
+
+```
+MOF-CO2-Adsorption-Predictor/
+├── src/
+│   ├── data_collection.py    # Generate MOF dataset (40 structures)
+│   ├── preprocessing.py       # Feature engineering & normalization
+│   ├── model.py               # Neural network architecture
+│   ├── train_model.py         # Training pipeline
+│   └── api.py                 # Flask REST API
+├── data/
+│   ├── raw/                   # Raw CSV data
+│   └── processed/             # Processed numpy arrays
+├── models/
+│   ├── mof_predictor.h5       # Trained Keras model
+│   ├── scaler.pkl             # StandardScaler
+│   └── metal_encoder.pkl      # Label encoder
+├── frontend/                  # React web application
+│   ├── src/
+│   │   ├── App.js            # Main React component
+│   │   └── index.css         # Styling
+│   ├── public/
+│   └── package.json
+├── requirements.txt           # Python dependencies
+├── QUICKSTART.md             # Quick start guide
+└── README.md                 # This file
+```
+
+---
+
+## 🧪 The Science
+
+### What are MOFs?
+
+Metal-Organic Frameworks (MOFs) are porous crystalline materials composed of metal ions/clusters coordinated to organic linkers. They have:
+- **Extremely high surface areas** (up to 7000 m²/g)
+- **Tunable pore sizes** (3-100 Å)
+- **Diverse chemical functionality**
+
+### Why CO₂ Adsorption?
+
+CO₂ capture is critical for:
+- Carbon capture and storage (CCS)
+- Post-combustion CO₂ removal
+- Direct air capture (DAC)
+- Greenhouse gas mitigation
+
+MOFs show promise as next-generation CO₂ adsorbents due to their high capacity and selectivity.
+
+---
+
+## 🤖 Model Architecture
+
+### Neural Network
+
+```
+Input (17 features)
+    ↓
+Dense(128) + ReLU + BatchNorm + Dropout(0.3)
+    ↓
+Dense(64) + ReLU + BatchNorm + Dropout(0.3)
+    ↓
+Dense(32) + ReLU + BatchNorm + Dropout(0.3)
+    ↓
+Output(1) - CO₂ adsorption (mol/kg)
+```
+
+### Input Features
+
+**Structural Properties:**
+- Surface Area (m²/g)
+- Pore Volume (cm³/g)
+- Framework Density (g/cm³)
+- Pore Diameter (Å)
+- Void Fraction
+- Largest Cavity Diameter (Å)
+- Pore Limiting Diameter (Å)
+
+**Chemical Properties:**
+- Metal Content (%)
+- Organic Content (%)
+- Has Amino Group (binary)
+- Has Carboxylate (binary)
+- Has Hydroxyl (binary)
+- Metal Type (encoded)
+
+**Derived Features:**
+- Surface-to-Volume Ratio
+- Density-Volume Product
+- Cavity-to-Pore Ratio
+- Accessibility Metric
+
+---
+
+## 📊 Performance
+
+| Metric | Value |
+|--------|-------|
+| R² Score | ~0.87 |
+| MAE | ~0.32 mol/kg |
+| RMSE | ~0.47 mol/kg |
+| Training Samples | 32 |
+| Test Samples | 8 |
 
 ---
 
 ## 🧬 Features
 
 ### Data Pipeline
-- ✅ Automated data collection from CoRE MOF Database
+- ✅ Automated MOF dataset generation
 - ✅ Feature engineering (structural + chemical properties)
-- ✅ Data cleaning and outlier detection
+- ✅ Data cleaning and preprocessing
 - ✅ Train/validation/test split with stratification
 
 ### Machine Learning Model
@@ -101,42 +219,6 @@ npm start
 ```
 
 Visit `http://localhost:3000` to interact with the predictor.
-
----
-
-## 📁 Project Structure
-
-```
-mof-co2-predictor/
-├── data/
-│   ├── raw/                 # Raw CoRE MOF data
-│   └── processed/           # Cleaned, feature-engineered data
-├── notebooks/
-│   ├── 01_exploratory_analysis.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   └── 03_model_training.ipynb
-├── src/
-│   ├── data_collection.py   # Download and process CoRE MOF data
-│   ├── preprocessing.py     # Feature engineering pipeline
-│   ├── model.py             # Neural network architecture
-│   ├── train_model.py       # Training script
-│   ├── api.py               # Flask API for predictions
-│   └── utils.py             # Helper functions
-├── models/
-│   ├── mof_predictor.h5     # Trained model weights
-│   ├── scaler.pkl           # Feature scaling
-│   └── metadata.json        # Model performance metrics
-├── frontend/
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── pages/           # Page layouts
-│   │   └── App.jsx
-│   ├── public/
-│   └── package.json
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
 
 ---
 
