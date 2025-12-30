@@ -115,13 +115,13 @@ def main():
     print("=" * 60)
     
     # Create data directory if it doesn't exist
-    os.makedirs('data/raw', exist_ok=True)
+    os.makedirs(os.path.join('data', 'raw'), exist_ok=True)
     
     # Generate dataset
     df = generate_mof_dataset(n_samples=40)
     
     # Save to CSV
-    output_path = 'data/raw/mof_co2_properties.csv'
+    output_path = os.path.join('data', 'raw', 'mof_co2_properties.csv')
     df.to_csv(output_path, index=False)
     
     print(f"\n✅ Dataset generated successfully!")

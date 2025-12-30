@@ -75,8 +75,12 @@ def test_data_generation():
     print("=" * 60)
     
     try:
+        # Add src to path if not already there
+        src_path = os.path.join(os.getcwd(), 'src')
+        if src_path not in sys.path:
+            sys.path.insert(0, src_path)
+        
         # Import and run data collection
-        sys.path.insert(0, 'src')
         from data_collection import generate_mof_dataset
         
         df = generate_mof_dataset(n_samples=10)
@@ -90,8 +94,14 @@ def test_data_generation():
             print(f"❌ Expected 10 samples, got {len(df)}")
             return False
     
+    except ImportError as e:
+        print(f"❌ Import error: {str(e)}")
+        print(f"   Make sure you're running this script from the project root directory")
+        return False
     except Exception as e:
         print(f"❌ Data generation failed: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
 
 def main():

@@ -15,10 +15,10 @@ def load_preprocessed_data():
     
     print("📂 Loading preprocessed data...")
     
-    X_train = np.load('data/processed/X_train.npy')
-    X_test = np.load('data/processed/X_test.npy')
-    y_train = np.load('data/processed/y_train.npy')
-    y_test = np.load('data/processed/y_test.npy')
+    X_train = np.load(os.path.join('data', 'processed', 'X_train.npy'))
+    X_test = np.load(os.path.join('data', 'processed', 'X_test.npy'))
+    y_train = np.load(os.path.join('data', 'processed', 'y_train.npy'))
+    y_test = np.load(os.path.join('data', 'processed', 'y_test.npy'))
     
     print(f"   ✅ Training set: {X_train.shape}")
     print(f"   ✅ Test set: {X_test.shape}")
@@ -155,8 +155,9 @@ def plot_training_history(history):
     axes[1].grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig('models/training_history.png', dpi=300, bbox_inches='tight')
-    print(f"\n📈 Training history plot saved to: models/training_history.png")
+    plot_path = os.path.join('models', 'training_history.png')
+    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
+    print(f"\n📈 Training history plot saved to: {plot_path}")
 
 def plot_predictions(y_test, y_pred):
     """
@@ -187,8 +188,9 @@ def plot_predictions(y_test, y_pred):
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     
-    plt.savefig('models/predictions.png', dpi=300, bbox_inches='tight')
-    print(f"📊 Prediction plot saved to: models/predictions.png")
+    plot_path = os.path.join('models', 'predictions.png')
+    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
+    print(f"📊 Prediction plot saved to: {plot_path}")
 
 def main():
     """Main training pipeline"""
@@ -198,7 +200,7 @@ def main():
     print("=" * 60)
     
     # Check if preprocessed data exists
-    if not os.path.exists('data/processed/X_train.npy'):
+    if not os.path.exists(os.path.join('data', 'processed', 'X_train.npy')):
         print("\n❌ Preprocessed data not found!")
         print("   Please run: python src/preprocessing.py")
         return

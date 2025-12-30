@@ -20,21 +20,22 @@ def load_model_components():
     print("Loading model components...")
     
     # Check if model exists
-    if not os.path.exists('models/mof_predictor.h5'):
+    model_path = os.path.join('models', 'mof_predictor.h5')
+    if not os.path.exists(model_path):
         raise FileNotFoundError(
             "Trained model not found. Please run 'python src/train_model.py' first."
         )
     
     # Load model
-    model = tf.keras.models.load_model('models/mof_predictor.h5')
+    model = tf.keras.models.load_model(model_path)
     print("✅ Model loaded")
     
     # Load scaler
-    scaler = joblib.load('models/scaler.pkl')
+    scaler = joblib.load(os.path.join('models', 'scaler.pkl'))
     print("✅ Scaler loaded")
     
     # Load label encoder
-    label_encoder = joblib.load('models/metal_encoder.pkl')
+    label_encoder = joblib.load(os.path.join('models', 'metal_encoder.pkl'))
     print("✅ Label encoder loaded")
     
     return model, scaler, label_encoder

@@ -14,7 +14,7 @@ import os
 
 def load_raw_data():
     """Load the raw MOF dataset"""
-    data_path = 'data/raw/mof_co2_properties.csv'
+    data_path = os.path.join('data', 'raw', 'mof_co2_properties.csv')
     
     if not os.path.exists(data_path):
         raise FileNotFoundError(
@@ -65,7 +65,7 @@ def engineer_features(df):
     
     # Save the encoder for later use
     os.makedirs('models', exist_ok=True)
-    joblib.dump(label_encoder, 'models/metal_encoder.pkl')
+    joblib.dump(label_encoder, os.path.join('models', 'metal_encoder.pkl'))
     print(f"   - Metal type encoder saved")
     
     print(f"   - Created {4} derived features")
@@ -128,27 +128,27 @@ def prepare_data(test_size=0.2, random_state=42):
     print(f"   - Features normalized: {len(feature_columns)}")
     
     # Save preprocessed data
-    os.makedirs('data/processed', exist_ok=True)
+    os.makedirs(os.path.join('data', 'processed'), exist_ok=True)
     
-    np.save('data/processed/X_train.npy', X_train_scaled)
-    np.save('data/processed/X_test.npy', X_test_scaled)
-    np.save('data/processed/y_train.npy', y_train)
-    np.save('data/processed/y_test.npy', y_test)
+    np.save(os.path.join('data', 'processed', 'X_train.npy'), X_train_scaled)
+    np.save(os.path.join('data', 'processed', 'X_test.npy'), X_test_scaled)
+    np.save(os.path.join('data', 'processed', 'y_train.npy'), y_train)
+    np.save(os.path.join('data', 'processed', 'y_test.npy'), y_test)
     
     # Save scaler
-    joblib.dump(scaler, 'models/scaler.pkl')
+    joblib.dump(scaler, os.path.join('models', 'scaler.pkl'))
     
     # Save feature names
-    with open('data/processed/feature_names.txt', 'w') as f:
+    with open(os.path.join('data', 'processed', 'feature_names.txt'), 'w') as f:
         f.write('\n'.join(feature_columns))
     
     print(f"\n💾 Saved Preprocessed Data:")
-    print(f"   - data/processed/X_train.npy")
-    print(f"   - data/processed/X_test.npy")
-    print(f"   - data/processed/y_train.npy")
-    print(f"   - data/processed/y_test.npy")
-    print(f"   - models/scaler.pkl")
-    print(f"   - data/processed/feature_names.txt")
+    print(f"   - {os.path.join('data', 'processed', 'X_train.npy')}")
+    print(f"   - {os.path.join('data', 'processed', 'X_test.npy')}")
+    print(f"   - {os.path.join('data', 'processed', 'y_train.npy')}")
+    print(f"   - {os.path.join('data', 'processed', 'y_test.npy')}")
+    print(f"   - {os.path.join('models', 'scaler.pkl')}")
+    print(f"   - {os.path.join('data', 'processed', 'feature_names.txt')}")
     
     print(f"\n📈 Target Statistics:")
     print(f"   - Training mean: {y_train.mean():.2f} mol/kg")

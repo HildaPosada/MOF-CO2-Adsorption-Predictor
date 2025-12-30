@@ -27,27 +27,27 @@ def load_model_and_scaler():
     
     try:
         # Load model
-        model_path = 'models/mof_predictor.h5'
+        model_path = os.path.join('models', 'mof_predictor.h5')
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found at {model_path}")
         model = tf.keras.models.load_model(model_path)
         print(f"✅ Model loaded from {model_path}")
         
         # Load scaler
-        scaler_path = 'models/scaler.pkl'
+        scaler_path = os.path.join('models', 'scaler.pkl')
         if not os.path.exists(scaler_path):
             raise FileNotFoundError(f"Scaler not found at {scaler_path}")
         scaler = joblib.load(scaler_path)
         print(f"✅ Scaler loaded from {scaler_path}")
         
         # Load label encoder
-        encoder_path = 'models/metal_encoder.pkl'
+        encoder_path = os.path.join('models', 'metal_encoder.pkl')
         if os.path.exists(encoder_path):
             label_encoder = joblib.load(encoder_path)
             print(f"✅ Label encoder loaded from {encoder_path}")
         
         # Load feature names
-        feature_path = 'data/processed/feature_names.txt'
+        feature_path = os.path.join('data', 'processed', 'feature_names.txt')
         if os.path.exists(feature_path):
             with open(feature_path, 'r') as f:
                 feature_names = [line.strip() for line in f.readlines()]
