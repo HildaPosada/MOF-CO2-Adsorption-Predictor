@@ -1,0 +1,17 @@
+Surface_Area
+Pore_Volume
+Framework_Density
+Pore_Diameter
+Void_Fraction
+Largest_Cavity_Diameter
+Pore_Limiting_Diameter
+Metal_Content
+Organic_Content
+Has_Amino_Group
+Has_Carboxylate
+Has_Hydroxyl
+Metal_Type_Encoded
+Surface_to_Volume_Ratio
+Density_Volume_Product
+Cavity_to_Pore_Ratio
+Accessibility
