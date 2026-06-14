@@ -1,5 +1,8 @@
 # 🔬 MOF CO2 Adsorption Predictor
 
+> **[Live Demo](https://mof-demo-ebon.vercel.app)** | Interactive ML Demo
+
+
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-orange.svg)](https://www.tensorflow.org/)
 [![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org/)
