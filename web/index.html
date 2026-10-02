@@ -55,11 +55,11 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
     <div class="panel">
       <h2>MOF Parameters</h2>
       <div class="grid2">
-        <div><label>Surface Area (m²/g)</label><input type="number" id="surface" value="3500" step="100" min="100" max="10000"/></div>
-        <div><label>Pore Volume (cm³/g)</label><input type="number" id="pore_vol" value="1.2" step="0.1" min="0.1" max="5"/></div>
-        <div><label>Framework Density (g/cm³)</label><input type="number" id="density" value="0.8" step="0.05" min="0.1" max="3"/></div>
-        <div><label>Pore Diameter (Å)</label><input type="number" id="pore_diam" value="12.5" step="0.5" min="2" max="50"/></div>
-        <div><label>Void Fraction</label><input type="number" id="void" value="0.65" step="0.01" min="0.1" max="0.95"/></div>
+        <div><label>Surface Area (m²/g)</label><input type="number" id="surface" value="3500" step="any" min="100" max="10000"/></div>
+        <div><label>Pore Volume (cm³/g)</label><input type="number" id="pore_vol" value="1.2" step="any" min="0.1" max="5"/></div>
+        <div><label>Framework Density (g/cm³)</label><input type="number" id="density" value="0.8" step="any" min="0.1" max="3"/></div>
+        <div><label>Pore Diameter (Å)</label><input type="number" id="pore_diam" value="12.5" step="any" min="2" max="50"/></div>
+        <div><label>Void Fraction</label><input type="number" id="void" value="0.65" step="any" min="0.1" max="0.95"/></div>
         <div><label>Metal Type</label>
           <select id="metal">
             <option value="Zn">Zinc (Zn)</option>
@@ -90,7 +90,7 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
 
   <div>
     <div class="panel">
-      <h2>Illustrative Result</h2>
+      <h2>Illustrative Result</h2><p id="input-error" role="alert" style="color:#fb7185"></p>
       <div id="placeholder" style="color:#555;font-size:.9rem;padding:2rem 0">Set parameters and explore the illustrative formula.</div>
       <div class="result-box" id="result">
         <div class="result-num" id="result-num">—</div>
@@ -139,7 +139,8 @@ document.getElementById('benchmark-chart').innerHTML = renderBar(benchmarks, ' d
 document.getElementById('feature-chart').innerHTML = renderBar(features, '%');
 
 function predict() {
-  if (![...document.querySelectorAll('input[type=number]')].every(input=>input.value!==''&&input.checkValidity()&&Number.isFinite(Number(input.value)))) {document.getElementById('result').textContent='Enter valid numeric values within the displayed ranges.';return;}
+  if (![...document.querySelectorAll('input[type=number]')].every(input=>input.value!==''&&input.checkValidity()&&Number.isFinite(Number(input.value)))) {document.getElementById('input-error').textContent='Enter valid numeric values within the displayed ranges.';document.getElementById('result').style.display='none';return;}
+  document.getElementById('input-error').textContent='';document.getElementById('result').style.display='block';
 
   const sa = +document.getElementById('surface').value;
   const pv = +document.getElementById('pore_vol').value;
@@ -151,7 +152,7 @@ function predict() {
   const carb = document.getElementById('carboxylate').checked ? 1 : 0;
   const hydroxyl = document.getElementById('hydroxyl').checked ? 1 : 0;
 
-  // ML model simulation (based on actual trained model weights)
+  // Hand-written illustrative formula; no learned model weights are loaded.
   const metalBoost = {Zn:1.0,Cu:1.12,Al:0.95,Fe:0.88,Mg:1.05,Zr:1.08}[metal]||1.0;
   let score = 0;
   score += (sa / 10000) * 38;
