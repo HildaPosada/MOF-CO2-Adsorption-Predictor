@@ -8,12 +8,6 @@
 
 > **[Interactive demo](https://mof-demo-ebon.vercel.app/)**
 
-## Verified deployment status · October 1, 2026
-
-The web demo is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
-
-A machine learning web application that predicts CO₂ adsorption capacity in Metal-Organic Frameworks (MOFs) using deep neural networks.
-
 ---
 
 ## 📋 Overview
