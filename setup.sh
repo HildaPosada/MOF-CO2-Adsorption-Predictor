@@ -59,7 +59,7 @@ print_success "Dependencies installed"
 
 # Step 4: Verify installation
 print_info "Verifying installation..."
-python test_setup.py
+python scripts/test_setup.py
 print_success "Installation verified"
 
 # Step 5: Generate dataset
@@ -79,7 +79,7 @@ print_success "Model trained"
 
 # Step 8: Test prediction
 print_info "Testing predictions..."
-python example_prediction.py
+python scripts/example_prediction.py
 print_success "Predictions tested"
 
 # Summary

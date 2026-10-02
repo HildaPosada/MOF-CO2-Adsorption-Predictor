@@ -1,3 +1,10 @@
+from pathlib import Path
+import sys
+import os
+_PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(_PROJECT_ROOT))
+os.chdir(_PROJECT_ROOT)
+
 #!/usr/bin/env python3
 """
 Check port status and provide Codespaces access URLs
