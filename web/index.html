@@ -70,8 +70,6 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
             <option value="Zr">Zirconium (Zr)</option>
           </select>
         </div>
-        <div><label>Metal Content (%)</label><input type="number" id="metal_pct" value="25" step="1" min="5" max="60"/></div>
-        <div><label>Organic Content (%)</label><input type="number" id="organic_pct" value="75" step="1" min="40" max="95"/></div>
       </div>
       <div style="margin-top:1rem">
         <label style="margin-bottom:.5rem;display:block">Functional Groups</label>
@@ -83,7 +81,7 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
     </div>
 
     <div class="panel" style="margin-top:1.5rem">
-      <h2>About This Model</h2>
+      <h2>About This Demonstration</h2>
       <div class="about">
         This web demo uses a hand-written formula. It does not load the repository’s TensorFlow model and is not a measured CO₂ adsorption predictor.<br><br>The repository’s training generator uses synthetic data. Trained model and scaler files are needed for real inference.<br><br><a href="https://github.com/HildaPosada/MOF-CO2-Adsorption-Predictor" target="_blank" style="color:#00c896;text-decoration:none">View code on GitHub →</a>
       </div>
@@ -93,7 +91,7 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
   <div>
     <div class="panel">
       <h2>Illustrative Result</h2>
-      <div id="placeholder" style="color:#555;font-size:.9rem;padding:2rem 0">Set MOF parameters and click Predict to see CO₂ adsorption capacity.</div>
+      <div id="placeholder" style="color:#555;font-size:.9rem;padding:2rem 0">Set parameters and explore the illustrative formula.</div>
       <div class="result-box" id="result">
         <div class="result-num" id="result-num">—</div>
         <div class="result-label">Illustrative score (arbitrary units)</div>
@@ -103,12 +101,12 @@ input:focus,select:focus{outline:2px solid #00c896;border-color:#00c896}
     </div>
 
     <div class="panel" style="margin-top:1.5rem">
-      <h2>Top Materials by CO₂ Uptake</h2>
+      <h2>Example comparison</h2><p class="about">Made-up scores for layout illustration. These are not experimental measurements.</p>
       <div class="chart-area" id="benchmark-chart"></div>
     </div>
 
     <div class="panel" style="margin-top:1.5rem">
-      <h2>Feature Importance</h2>
+      <h2>Example feature chart</h2><p class="about">Fixed illustrative percentages, not learned model importance or formula contributions.</p>
       <div class="chart-area" id="feature-chart"></div>
     </div>
   </div>
