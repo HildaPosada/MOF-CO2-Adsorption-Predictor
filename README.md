@@ -1,5 +1,12 @@
 # 🔬 MOF CO2 Adsorption Predictor
 
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![Flask](https://img.shields.io/badge/Flask-505050?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/React-149ECA?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+
 ## Verified deployment status · October 1, 2026
 
 The [web demo](https://mof-demo-ebon.vercel.app/) is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
@@ -10,9 +17,6 @@ See [deployment source and scope](web/README.md) and the [portfolio audit](https
 > **[Live Demo](https://mof-demo-ebon.vercel.app)** | Interactive ML Demo
 
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-orange.svg)](https://www.tensorflow.org/)
-[![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)](https://reactjs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A machine learning web application that predicts CO₂ adsorption capacity in Metal-Organic Frameworks (MOFs) using deep neural networks.
