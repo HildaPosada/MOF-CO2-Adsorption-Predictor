@@ -6,19 +6,11 @@
 [![React](https://img.shields.io/badge/React-149ECA?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-
 > **[Interactive demo](https://mof-demo-ebon.vercel.app/)**
 
 ## Verified deployment status · October 1, 2026
 
 The web demo is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
-
-See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/master/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
-
-
-
-
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A machine learning web application that predicts CO₂ adsorption capacity in Metal-Organic Frameworks (MOFs) using deep neural networks.
 
