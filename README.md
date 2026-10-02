@@ -7,14 +7,15 @@
 [![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 
+> **[Interactive demo](https://mof-demo-ebon.vercel.app/)**
+
 ## Verified deployment status · October 1, 2026
 
-The [web demo](https://mof-demo-ebon.vercel.app/) is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
+The web demo is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
 
 See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/master/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
 
 
-> **[Live Demo](https://mof-demo-ebon.vercel.app)** | Interactive ML Demo
 
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -315,7 +316,6 @@ Visit `http://localhost:3000` to interact with the predictor.
 
 ## 🔗 Links
 
-- **Live Demo:** [mof-predictor.vercel.app](https://mof-predictor.vercel.app)
 - **GitHub Repository:** [github.com/HildaPosada/mof-co2-predictor](https://github.com/HildaPosada/mof-co2-predictor)
 - **LinkedIn Post:** Coming soon
 
