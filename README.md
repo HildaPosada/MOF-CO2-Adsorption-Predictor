@@ -1,5 +1,12 @@
 # 🔬 MOF CO2 Adsorption Predictor
 
+## Verified deployment status · October 1, 2026
+
+The [web demo](https://mof-demo-ebon.vercel.app/) is a hand-written formula demonstration using arbitrary scores. It does not load a trained TensorFlow model. The repository uses synthetic training data; trained model and scaler artifacts were not present in the audited repository. Experimental prediction accuracy has not been verified.
+
+See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/main/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
+
+
 > **[Live Demo](https://mof-demo-ebon.vercel.app)** | Interactive ML Demo
 
 
